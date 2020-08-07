@@ -1,2 +1,44 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="container new">
+  <h1>新規登録</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_with(model: @user, local:true) do |f|%>
+      <%= f.label :名前 %>
+      <% if @user.errors.messages[:name].empty? %>
+        <%= f.text_field :name , class: "form-control"%>
+      <% else%>
+        <%= f.text_field :name , class: "form-control is-invalid"%>
+
+        <% @user.errors.messages[:name].each do |error| %>
+          <div class="text-danger"><%= error%></div>
+        <% end%>
+      <% end %>
+      <%= f.label :メールアドレス%>
+      <% if @user.errors.messages[:email].empty? %>
+        <%= f.email_field :email, class: "form-control" %>
+      <% else%>
+        <%= f.text_field :メールアドレス , class: "form-control is-invalid"%>
+        <% @user.errors.messages[:email].each do |error| %>
+          <div class="text-danger"><%= error%></div>
+        <% end%>
+      <% end %>
+      <%= f.label :パスワード%>
+      <% if @user.errors.messages[:password].empty? %>
+        <%= f.password_field :password, class: "form-control" %>
+      <% else%>
+        <%= f.text_field :password , class: "form-control is-invalid"%>
+        <% @user.errors.messages[:password].each do |error| %>
+          <div class="text-danger"><%= error%></div>
+        <% end%>
+      <% end %>
+      <%= f.label :パスワード確認用 %>
+      <% if @user.errors.messages[:password_confirmation].empty? %>
+        <%= f.password_field :password_confirmation, class: "form-control"%>
+      <% else %>
+        <%= f.text_field :password , class: "form-control is-invalid"%>
+      <% end %>
+      <%= f.submit "アカウントを作成", class: "btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>
