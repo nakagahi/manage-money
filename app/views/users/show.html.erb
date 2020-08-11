@@ -1,12 +1,25 @@
-<div class="container show">
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <h1>
-          <%= gravatar_for @user %>
-          <%= @user.name %>
-        </h1>
-      </section>
-    </aside>
+<div class="container all">
+  <h1>プロフィール</h1>
+  <div class="row profile-top">
+    <div class="col-md-4">
+
+        <%= gravatar_for @user %>
+    </div>
+    <div class="col-md-8 profile-main">
+      <h5>
+        <div class="profile-name">
+          名前:<%= @user.name %>
+        </div>
+        <div class="profile-email">
+          メールアドレス:<%= @user.email %>
+        </div>
+        <div class="profile-money">
+          今月使えるお金:¥100000
+        </div>
+
+      </h5>
+
+    </div>
+
   </div>
 </div>
