@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+# (mainコントローラー)
+  get "/main", to: "main#top"
+
 # (homeコントローラー)
   # topページへのルーティング
   root "home#top"

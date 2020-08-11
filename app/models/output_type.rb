@@ -1,0 +1,2 @@
+class OutputType < ApplicationRecord
+end
