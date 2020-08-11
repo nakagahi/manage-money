@@ -13,7 +13,7 @@
           <% if logged_in? %>
             <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-item nav-link" %>
             <%= link_to "プロフィール", current_user, class: "nav-item nav-link"%>
-            <%= link_to "ユーザ一覧", '#', class: "nav-item nav-link"%>
+            <%= link_to "ユーザ一覧", users_path, class: "nav-item nav-link"%>
           <% else %>
             <%= link_to "ログイン", login_url, class: "nav-item nav-link"%>
 
