@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
     @incomes = Income.where(user_id: @user.id)
-    @total = @incomes.sum(:money)
+    @outcomes = Output.where(user_id: @user.id)
+
+    @total = @incomes.sum(:money) - @outcomes.sum(:money)
 
   end
 
