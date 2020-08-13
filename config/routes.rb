@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/income', to: "main#income"
   get '/outcome', to: "main#outcome"
   post '/income', to: "main#save"
+  post "/outcome/:out", to: "main#save"
 
 # (homeコントローラー)
   # topページへのルーティング

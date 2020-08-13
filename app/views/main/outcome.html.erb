@@ -1,0 +1,19 @@
+<div class="container outcome-edit">
+  <h1>支出</h1>
+  <%= form_with url: "/outcome/1", local: true do |f| %>
+
+
+    <%= f.label :月 %>
+    <%= f.select :month, [["1月", 1], ["2月", 2], ["3月", 3], ["4月", 4], ["5月", 5], ["6月", 6], ["7月", 7], ["8月", 8], ["9月", 9], ["10月", 10], ["11月", 11], ["12月", 12]] %>
+
+    <%= f.label :支出金額%>
+    <%= f.number_field :money %>
+
+    <%= f.label :支出項目%>
+    <%= f.collection_select(:series, @out_series, :id, :name )%>
+
+    <%= f.submit "保存する", class: "btn btn-primary"%>
+
+  <% end %>
+
+</div>

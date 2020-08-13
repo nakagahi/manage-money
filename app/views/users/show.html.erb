@@ -22,7 +22,7 @@
     </div>
 
   </div>
-  <div class="row profile-money">
+  <div class="row profile-moneys">
     <div class="col-md-6">
       <table class="table">
         <h2>収入内訳</h2>
@@ -52,12 +52,16 @@
           </tr>
         </thead>
         <tbody>
+          <% @outcomes.each do |outcome| %>
+            <tr>
+              <td><%= outcome.money %></td>
+              <td><%= OutputType.find(outcome.series).name %></td>
+            </tr>
+          <% end%>
 
         </tbody>
       </table>
     </div>
 
   </div>
-</div>
-
 </div>
