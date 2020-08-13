@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 # (mainコントローラー)
   get "/main", to: "main#top"
+  get '/income', to: "main#income"
+  get '/outcome', to: "main#outcome"
+  post '/income', to: "main#save"
 
 # (homeコントローラー)
   # topページへのルーティング
