@@ -14,6 +14,12 @@ module SessionsHelper
 
   end
 
+  def current_user?(user)
+    if current_user == user
+      return true
+    end
+  end
+
   # ログイン確認メソッド
   def logged_in?
     !current_user.nil?

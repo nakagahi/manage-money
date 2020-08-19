@@ -1,0 +1,43 @@
+<div class="container edit">
+  <h2>編集</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12">
+        <%= form_with(model: @user, local:true) do |f|%>
+        <%= f.label :名前 %>
+        <% if @user.errors.messages[:name].empty? %>
+          <%= f.text_field :name , class: "form-control"%>
+        <% else%>
+          <%= f.text_field :name , class: "form-control is-invalid"%>
+
+          <% @user.errors.messages[:name].each do |error| %>
+            <div class="text-danger"><%= error%></div>
+          <% end%>
+        <% end %>
+        <%= f.label :メールアドレス%>
+        <% if @user.errors.messages[:email].empty? %>
+          <%= f.email_field :email, class: "form-control" %>
+        <% else%>
+          <%= f.text_field :メールアドレス , class: "form-control is-invalid"%>
+          <% @user.errors.messages[:email].each do |error| %>
+            <div class="text-danger"><%= error%></div>
+          <% end%>
+        <% end %>
+        <%= f.label :パスワード%>
+        <% if @user.errors.messages[:password].empty? %>
+          <%= f.password_field :password, class: "form-control" %>
+        <% else%>
+          <%= f.text_field :password , class: "form-control is-invalid"%>
+          <% @user.errors.messages[:password].each do |error| %>
+            <div class="text-danger"><%= error%></div>
+          <% end%>
+        <% end %>
+        <%= f.submit "ユーザ情報更新", class: "btn-primary" %>
+      <% end %>
+    </div>
+
+    </div>
+
+  </div>
+
+</div>
