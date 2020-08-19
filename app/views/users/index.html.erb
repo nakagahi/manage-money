@@ -1,6 +1,7 @@
 <div class="all">
   <div class="container">
     <h1>ユーザ一覧</h1>
+    <%= will_paginate%>
     <table class="table">
         <thead>
             <tr>
@@ -12,15 +13,11 @@
         </thead>
         <tbody>
           <% @users.each do |user|%>
-            <tr>
-                <td><%= user.id%></td>
-                <td><%= user.name%></td>
-                <td><%= user.email%></td>
-                <td>削除</td>
-            </tr>
+            <%= render user %>
           <% end %>
         </tbody>
     </table>
+    <%= will_paginate %>
   </div>
 
 </div>
