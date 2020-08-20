@@ -1,8 +1,8 @@
 User.create!(
-  name: "中川 大樹",
-  email: "iwbb1022@icloud.com",
-  password: "nh10221022",
-  password_confirmation: "nh10221022",
+  name: "サンプルユーザー",
+  email: "hoge@icloud.com",
+  password: "password",
+  password_confirmation: "password",
   admin: true
 )
 
