@@ -5,7 +5,7 @@
     <td><%= link_to "編集", edit_user_url(user) %></td>
     <td>
       <% if current_user.admin? && !current_user?(user) %>
-        | <%= link_to "delete", user, method: :delete,
+        | <%= link_to "削除", user, method: :delete,
                                       data: { confirm: "本当に削除してもいいですか?" } %>
       <% end %>
     </td>
