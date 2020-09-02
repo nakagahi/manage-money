@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="row profile-moneys">
+    <div class="col-md-6">
+      <table class="table">
+        <h2>収入内訳</h2>
+        <thead>
+          <tr>
+            <th>収入</th>
+            <th>種別</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @incomes.each do |income| %>
+            <tr>
+              <td><%=income.money%></td>
+              <td><%=InputType.find(income.series).name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table class="table">
+        <h2 class="shishutsu">支出内訳</h2>
+        <thead>
+          <tr>
+            <th>支出</th>
+            <th>種別</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @outcomes.each do |outcome| %>
+            <tr>
+              <td><%= outcome.money %></td>
+              <td><%= OutputType.find(outcome.series).name %></td>
+            </tr>
+          <% end%>
+
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
 # (usersコントローラー)
   resources 'users'
+  get "/moneyprofiel/:id", to: "users#moneys"
 
 # (sessionsコントローラ-)
   get "/login", to: "sessions#new"
