@@ -30,7 +30,7 @@ before_action :correct_user, only: [:edit, :update]
   end
 
   def index
-    @users = User.order(id: "ASC").paginate(page: params[:page])
+    @users = User.order(id: "ASC").page(params[:page]).per(10)
   end
 
 # edit_user GET    /users/:id/edit
