@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+before_action :not_log_in?, only: [:new, :create]
+before_action :log_in?, only: [:destory]
+
+
   # ログインページへのアクション
   def new
   end
@@ -14,6 +18,7 @@ class SessionsController < ApplicationController
       log_in(@user)
       redirect_to @user
     else
+      flash[:danger] = "ログインに失敗しました"
       render 'new'
     end
   end
@@ -22,5 +27,21 @@ class SessionsController < ApplicationController
     log_out
     flash[:success] = "ログアウトしました。"
     redirect_to login_url
+  end
+
+
+private
+  def not_log_in?
+    if logged_in?
+      flash.now[:danger] = "ログアウトしてください"
+      render "main/top"
+    end
+  end
+
+  def log_in?
+    if !logged_in?
+      flash[:danger] = "ログインしてください"
+      render "home/top"
+    end
   end
 end
