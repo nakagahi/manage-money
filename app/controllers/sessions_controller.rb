@@ -8,6 +8,23 @@ before_action :log_in?, only: [:destory]
   def new
   end
 
+  # 簡単ログイン
+  def easy
+
+    @user = User.find_by(email: "sample@icloud.com")
+
+    if @user && @user.authenticate("password")
+
+      flash[:success] = "#{@user.name}さんようこそ!"
+      log_in(@user)
+      redirect_to @user
+    else
+      flash[:danger] = "ログインに失敗しました"
+      render 'new'
+    end
+
+  end
+
   # ログインページから送られてきたPostリクエストに対する処理
   def create
     @user = User.find_by(email: params[:session][:email])

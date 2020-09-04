@@ -157,9 +157,6 @@ input {
   padding-top: 50px;
 }
 
-.main-top{
-  padding-top: 50px;
-}
 
 .income{
 
@@ -168,12 +165,8 @@ input {
   line-height: 300px;
 }
 
-.btn-warning{
-  padding: 100px 400px;
-}
-.output{
-  padding: 100px 400px;
-}
+
+
 
 // 収入登録ページ
 
@@ -219,4 +212,18 @@ a{
 
 .pagination {
   justify-content: center;
+}
+
+.home-top {
+  padding: 100px 0 100px;
+
+}
+
+section {
+  padding: 100px 0;
+}
+
+.cover{
+  background-image: url(main.jpg);
+  background-size: cover;
 }

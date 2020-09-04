@@ -1,12 +1,65 @@
+<div class="cover text-white home-top h-300">
+  <div class="container text-center">
+    <h1>Manage Moneyへようこそ</h1>
+    <p class="lead">Manage Moneyはあなたの使えるお金の可視化に貢献してくれるよきパートナーです</p>
+    <%= link_to "簡単ログイン", easy_login_path, class: "btn btn-secondary btn-lg mt-5" %>
+  </div>
+</div>
 
-  <div class="top">
-    <div class="container">
-      <div class="menu-logo">
-        <h1>Wellcome to Manage Money App</h1>
-        <p>あなたのお金を管理できるアプリケーションです</p>
-        <a href="/users/new">
-          <button type="button" class="btn btn-outline-dark btn-top">新規登録!</button>
-        </a>
+<section id="about" class="bg-dark text-white h-100">
+  <div class="container">
+    <div class="row pb-4 text-center">
+
+      <h2 class="display-4 mx-auto py-4">Monage Moneyではこんな事が可能です</h2>
+        <div class="col-sm-4">
+          <%= image_tag 'pig.png', class: "w-100" %>
+        </div>
+
+        <div class="col-sm-8">
+          <ul class="list-unstyled py-4">
+            <li class="pb-4">月にいくらの収入があるかを記録していくことができます。</li>
+            <li class="pb-4">月にいくらの支出があるかを記録することができます。</li>
+            <li class="pb-4">支出の種類を確認することができます。</li>
+            <li class="pb-4">月にいくら使えるのかを教えてくれます。</li>
+            <li class="pb-4">支出をグラフで確認できます。</li>
+          </ul>
+        </div>
+
       </div>
     </div>
-  </div>
+</section>
+
+<section id="services" class="bg-light text-center">
+  <div class="container">
+    <h2 class="mx-auto pb-5">制作の想い</h2>
+    <div class="row">
+
+      <div class="col-md-4 order-sm-2">
+        <%= image_tag 'think.jpg', class: "w-50" %>
+      </div>
+      <div class="col-md-8 order-sm-1">
+        <p>普段から無駄遣いの多い自分</p>
+        <p>気軽に簡単に自分のお金を管理して無駄遣いをなくしたい・・・・</p>
+        <p>でも、巷にあるアプリはクレジットカードの登録をしたりしないといけないし<br>プレミアムプランとかお金を貯めるためなのに抵抗ある</p>
+        <p>そうだ、自分でアプリをつくればそんなめんどくさい機能がないお金管理アプリを作れる!</p><br><br><br>
+        <h3>そんな想いから作ったアプリです</h3>
+
+      </div>
+
+      </div>
+    </div>
+
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="text-center pb-4">節約を始めよう!</h2>
+    <div class="row">
+
+        <div class="mx-auto">
+          <%=link_to "新規登録", new_user_path, class: "btn btn-secondary btn-lg" %>
+          <%= link_to "簡単ログイン", easy_login_path, class: "btn btn-danger btn-lg" %>
+        </div>
+      </div>
+    </div>
+</section>
