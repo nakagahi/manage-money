@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # (mainコントローラー)
   get "/main", to: "main#top"
   get '/income', to: "main#income"
@@ -22,5 +23,11 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+
+# (blogコントローラー)
+  get "/blogs/border", to: "blogs#border"
+  resources :blogs
+
+
 
 end
