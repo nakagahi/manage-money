@@ -19,7 +19,7 @@ before_action :log_in?, only: [:destory]
       log_in(@user)
       redirect_to @user
     else
-      flash[:danger] = "ログインに失敗しました"
+      flash.now[:danger] = "ログインに失敗しました"
       render 'new'
     end
 
@@ -35,7 +35,7 @@ before_action :log_in?, only: [:destory]
       log_in(@user)
       redirect_to @user
     else
-      flash[:danger] = "ログインに失敗しました"
+      flash.now[:danger] = "ログインに失敗しました"
       render 'new'
     end
   end
