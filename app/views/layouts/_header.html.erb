@@ -7,21 +7,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-
+        <ul class="navbar-nav">
 
           <% if logged_in? %>
-            <%= link_to "ホーム", main_path, class: "nav-item nav-link"%>
-            <%= link_to "プロフィール", current_user, class: "nav-item nav-link"%>
-            <%= link_to "ユーザ一覧", users_path, class: "nav-item nav-link"%>
-            <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-item nav-link" %>
-          <% else %>
-            <%= link_to "トップページ", root_url, class: "nav-item nav-link"%>
-            <%= link_to "新規登録", new_user_path, class: "nav-item nav-link"%>
-            <%= link_to "ログイン", login_url, class: "nav-item nav-link"%>
-          <% end %>
 
-        </div>
+            <li class="nav-item"><%= link_to "ホーム", main_path, class: "nav-link"%></li>
+            <li class="nav-item"><%= link_to "プロフィール", current_user, class: "nav-link"%></li>
+            <li class="nav-item"><%= link_to "ユーザ一覧", users_path, class: "nav-link"%></li>
+            <li class="nav-item"><%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link" %></li>
+
+          <% else %>
+            <li class="nav-item"><%= link_to "トップページ", root_url, class: "nav-link"%></li>
+            <li class="nav-item"><%= link_to "新規登録", new_user_path, class: "nav-link"%></li>
+            <li class="nav-item"><%= link_to "ログイン", login_url, class: "nav-link"%></li>
+
+          <% end %>
+        </ul>
+
       </div>
     </nav>
 
