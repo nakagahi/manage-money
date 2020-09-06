@@ -50,8 +50,9 @@ before_action :log_in?, only: [:destory]
 private
   def not_log_in?
     if logged_in?
+
       flash.now[:danger] = "ログアウトしてください"
-      render "main/top"
+      redirect_to main_path
     end
   end
 

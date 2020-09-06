@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :not_log_in?, only: [:new, :create]
 before_action :logged_in_user, only: [:edit, :update, :destroy]
 before_action :correct_user, only: [:edit, :update]
 
@@ -77,6 +78,14 @@ before_action :correct_user, only: [:edit, :update]
     unless logged_in?
       flash[:danger] = "ログインしてください"
       redirect_to login_url
+    end
+  end
+
+  def not_log_in?
+    if logged_in?
+
+      flash.now[:danger] = "ログアウトしてください"
+      redirect_to main_path
     end
   end
 

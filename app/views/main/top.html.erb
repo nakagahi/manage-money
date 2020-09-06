@@ -1,4 +1,4 @@
-<section>
+<section class="bg-light">
   <div class="container main-top">
 
     <div class="row">
@@ -10,7 +10,46 @@
         <a type="button" href="/outcome" class="col-md-6 btn btn-primary output">支出を記録する</a>
       </div>
 
-      
+      <div class="container mt-5 text-center">
+        <table class="center mx-auto">
+          <thead>
+            <tr>
+              <th class="pr-4">タイトル</th>
+              <th>時間</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @blogs.each do |blog| %>
+              <tr>
+                <td><%= blog.title %></td>
+                <td><%= blog.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+                <td><%= link_to '詳細', blog %></td>
+                <td><%= link_to '編集', edit_blog_path(blog.id) %></td>
+                <td><%= link_to '削除',blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to '日記をかく', new_blog_path %>
+
+        <%= month_calendar events: @blogs do |date, blogs| %>
+          <%= date.day %>
+
+          <% blogs.each do |blog| %>
+            <div>
+              <%= link_to blog.title, blog %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+
+
 
     </div>
 
