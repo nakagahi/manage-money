@@ -11,7 +11,7 @@ private
   def for_top
 
     if logged_in?
-      render "/main/top"
+      redirect_to main_path
     end
   end
 

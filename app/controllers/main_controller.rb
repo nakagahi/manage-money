@@ -4,6 +4,18 @@ class MainController < ApplicationController
   before_action :set_outcome_series, only: [:income, :outcome, :save]
 
   def top
+
+    @blogs = []
+
+    blog = Blog.find_by(user_id: current_user)
+
+    if !blog.nil?
+
+      @blogs.push(blog)
+
+    end
+
+
   end
 
   def income

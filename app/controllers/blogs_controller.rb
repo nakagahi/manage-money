@@ -6,9 +6,13 @@ class BlogsController < ApplicationController
 
   def create
 
-    Blog.create(blog_params)
+    blog = Blog.create(blog_params)
 
-    redirect_to blogs_path
+    blog.user_id = current_user.id
+
+    blog.save
+
+    redirect_to main_path
 
   end
 
@@ -31,7 +35,7 @@ class BlogsController < ApplicationController
 
       flash[:danger] = "編集しました"
 
-      redirect_to blogs_path
+      redirect_to main_path
 
     else
 
@@ -51,7 +55,7 @@ class BlogsController < ApplicationController
 
       @blog.destroy
 
-      redirect_to blogs_path
+      redirect_to main_path
 
     end
 
