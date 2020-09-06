@@ -34,7 +34,7 @@ RSpec.describe SessionsController, type: :controller do
 
         expect(flash[:danger]).to eq "ログアウトしてください"
 
-        expect(response).to render_template "main/top"
+        expect(response).to redirect_to "/main"
 
       end
 
