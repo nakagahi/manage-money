@@ -7,11 +7,18 @@ class MainController < ApplicationController
 
     @blogs = []
 
-    blog = Blog.find_by(user_id: current_user)
+    bls = Blog.where(user_id: current_user)
 
-    if !blog.nil?
 
-      @blogs.push(blog)
+    if !bls.nil?
+
+      bls.each do |bl|
+
+        @blogs.push(bl)
+
+      end
+
+
 
     end
 
@@ -29,12 +36,17 @@ class MainController < ApplicationController
   def save
 
     if !params[:out]
-      @income = Income.new(money: params[:money], user_id: current_user.id, month: params[:month], series: params[:series])
+      @income = Income.new(money: params[:money], user_id: current_user.id, month: params["start_time(2i)"], series: params[:series])
 
-      if @income.valid?
+      time = "#{params["start_time(1i)"]}-#{params["start_time(2i)"]}-#{params["start_time(3i)"]} #{params["start_time(4i)"]}:#{params["start_time(5i)"]}"
+
+      blog = Blog.new(title: params[:title], content: params[:content], start_time: time, user_id: current_user.id)
+
+      if @income.valid? && blog.valid?
         flash[:success] = "収入の登録が完了しました。"
         @income.save
-        redirect_to user_path current_user.id
+        blog.save
+        redirect_to main_path
       else
         flash.now[:danger] = "収入の登録に失敗しました。"
         render "/main/income"
@@ -46,7 +58,7 @@ class MainController < ApplicationController
       if @outcome.valid?
         flash[:success] = "支出の登録が完了しました。"
         @outcome.save
-        redirect_to user_path current_user.id
+        redirect_to main_path
       else
         flash.now[:danger] = "支出の登録に失敗しました。"
         render "/main/outcome"
