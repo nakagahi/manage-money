@@ -22,12 +22,6 @@
 * カレンダー表示
 * レスポンシブデザイン
 
-![README-responsive](https://user-images.githubusercontent.com/60662524/88524761-bb736480-d034-11ea-94d1-dcfec3fc4266.png)
-
-詳細は下記よりご確認ください。
-
-https://docs.google.com/spreadsheets/d/1zn1J7OT1fU9TOgGupXXd03vXP6VqDejtVFZ6z9pqhcQ/edit#gid=1830135488
-
 ## 環境・使用技術
 ### フロントエンド
 * Bootstrap 4.1.1
@@ -45,7 +39,7 @@ https://docs.google.com/spreadsheets/d/1zn1J7OT1fU9TOgGupXXd03vXP6VqDejtVFZ6z9pq
 
 ### 本番環境(この環境する予定ですが、エラーが起きていて今はherokuで動かしています)
 * AWS (EC2、RDS for MySQL、Route53、CloudWatch、S3、Lambda)
-* MySQL2
+* postgres
 * Nginx、 Puma
 * CircleCIを用いてdocker-composeでコンテナを構築しCapistranoにより自動デプロイ
 
