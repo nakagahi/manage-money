@@ -13,19 +13,10 @@
       <div class="container mt-5 text-center">
         <table class="center mx-auto">
           <thead>
-  
+
           </thead>
 
-          <tbody>
-            <% @blogs.each do |blog| %>
-              <tr>
 
-                <td><%= link_to '詳細', blog %></td>
-                <td><%= link_to '編集', edit_blog_path(blog.id) %></td>
-                <td><%= link_to '削除',blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-          </tbody>
         </table>
 
         <br>
@@ -34,6 +25,7 @@
           <%= date.day %>
 
           <% blogs.each do |blog| %>
+
             <div>
               <%= link_to blog.title, blog %>
             </div>
