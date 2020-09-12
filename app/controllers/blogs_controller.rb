@@ -26,6 +26,7 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
+    @incomes = Income.find_by(user_id: @blog.user_id)
   end
 
   def update
