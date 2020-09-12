@@ -1,7 +1,7 @@
 class MainController < ApplicationController
 
   before_action :set_incomeseries, only: [:income, :save]
-  before_action :set_outcome_series, only: [:income, :outcome, :save]
+  before_action :set_outcome_series, only: [:outcome, :save]
 
   def top
 
@@ -53,11 +53,17 @@ class MainController < ApplicationController
       end
 
     else
-      @outcome = Output.new(money: params[:money], user_id: current_user.id, month: params[:month], series: params[:series])
+
+      @outcome = Output.new(money: params[:money], user_id: current_user.id, month: params["start_time(2i)"], series: params[:series])
+
+      time = "#{params["start_time(1i)"]}-#{params["start_time(2i)"]}-#{params["start_time(3i)"]} #{params["start_time(4i)"]}:#{params["start_time(5i)"]}"
+
+      blog = Blog.new(title: params[:title], content: params[:content], start_time: time, user_id: current_user.id)
 
       if @outcome.valid?
         flash[:success] = "支出の登録が完了しました。"
         @outcome.save
+        blog.save
         redirect_to main_path
       else
         flash.now[:danger] = "支出の登録に失敗しました。"

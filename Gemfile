@@ -12,6 +12,8 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 
+gem 'rails-i18n'
+
 gem 'kaminari'
 
 gem 'bcrypt',         '3.1.13'
