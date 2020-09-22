@@ -28,20 +28,13 @@ ActiveRecord::Schema.define(version: 2020_09_06_110816) do
     t.integer "money"
     t.integer "user_id"
     t.integer "month"
-    t.integer "species"
+    t.integer "series"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "input_types", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "months", force: :cascade do |t|
-    t.integer "money"
-    t.integer "month"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -56,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_110816) do
     t.integer "money"
     t.integer "user_id"
     t.integer "month"
-    t.integer "species"
+    t.integer "series"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -67,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_110816) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -34,7 +34,7 @@ class BlogsController < ApplicationController
 
     if @blog.update(blog_params)
 
-      flash[:danger] = "編集しました"
+      flash[:success] = "編集しました"
 
       redirect_to main_path
 

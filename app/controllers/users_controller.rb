@@ -58,14 +58,6 @@ before_action :correct_user, only: [:edit, :update]
     redirect_to users_url
   end
 
-  def moneys
-
-    @user = User.find(params[:id])
-
-    @incomes = Income.where(user_id: @user.id)
-    @outcomes = Output.where(user_id: @user.id)
-
-  end
 
   private
 

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get "/moneys/:id", to: "moneys#manage"
+  resources :moneys
+
+
 
 # (mainコントローラー)
   get "/main", to: "main#top"
