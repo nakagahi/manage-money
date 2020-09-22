@@ -9,6 +9,7 @@ class MainController < ApplicationController
 
     bls = Blog.where(user_id: current_user)
 
+    obls = OutBlog.where(user_id: current_user)
 
     if !bls.nil?
 
@@ -19,6 +20,16 @@ class MainController < ApplicationController
       end
 
 
+
+    end
+
+    if !obls.nil?
+
+      obls.each do |obl|
+
+        @blogs.push(obl)
+
+      end
 
     end
 
@@ -40,14 +51,29 @@ class MainController < ApplicationController
 
       time = "#{params["start_time(1i)"]}-#{params["start_time(2i)"]}-#{params["start_time(3i)"]} #{params["start_time(4i)"]}:#{params["start_time(5i)"]}"
 
-      blog = Blog.new(title: params[:title], content: params[:content], start_time: time, user_id: current_user.id)
+      if @income.valid?
 
-      if @income.valid? && blog.valid?
-        flash[:success] = "収入の登録が完了しました。"
         @income.save
+
+        blog = Blog.new(title: params[:title], content: params[:content], start_time: time, user_id: current_user.id, income_id: @income.id)
+
+       if blog.valid?
+
+        flash[:success] = "収入の登録が完了しました。"
+
         blog.save
         redirect_to main_path
+
+        else
+
+          debugger
+
+          flash.now[:danger] = "収入の登録に失敗しました。"
+          render "/main/income"
+
+        end
       else
+
         flash.now[:danger] = "収入の登録に失敗しました。"
         render "/main/income"
       end
@@ -58,13 +84,23 @@ class MainController < ApplicationController
 
       time = "#{params["start_time(1i)"]}-#{params["start_time(2i)"]}-#{params["start_time(3i)"]} #{params["start_time(4i)"]}:#{params["start_time(5i)"]}"
 
-      blog = Blog.new(title: params[:title], content: params[:content], start_time: time, user_id: current_user.id)
+
 
       if @outcome.valid?
         flash[:success] = "支出の登録が完了しました。"
         @outcome.save
-        blog.save
-        redirect_to main_path
+
+        out_blog = OutBlog.new(title: params[:title], content: params[:content], start_time: time, user_id: current_user.id, output_id: @outcome.id)
+
+        if out_blog.valid?
+
+          out_blog.save
+          redirect_to main_path
+        else
+          flash.now[:danger] = "支出の登録に失敗しました。"
+          render "/main/outcome"
+        end
+
       else
         flash.now[:danger] = "支出の登録に失敗しました。"
         render "/main/outcome"

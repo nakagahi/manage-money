@@ -27,7 +27,17 @@
           <% blogs.each do |blog| %>
 
             <div>
-              <%= link_to blog.title, blog %>
+
+              <% if blog.kind_of?(Blog) %>
+
+                <%= link_to blog.title, "/blogs/#{blog.id}" %>
+
+              <% elsif blog.kind_of?(OutBlog) %>
+
+                <%= link_to blog.title, "/blogs/#{blog.id}/1" %>
+
+              <% end %>
+
             </div>
           <% end %>
         <% end %>
