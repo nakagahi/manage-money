@@ -16,8 +16,17 @@
       <%= @blog.content %>
     </p>
 
-    <%= link_to '編集する', edit_blog_path(@blog) %> |
-    <%= link_to '削除する', blog_path(@blog), method: :delete, data: {confirm: "本当にこの投稿を削除していいですか?"} %> |
+    <% if @blog.kind_of?(Blog) %>
+      <%= link_to '編集する', "/blogs/#{@blog.id}/edit" %> |
+    <% elsif @blog.kind_of?(OutBlog) %>
+      <%= link_to '編集する', "/blogs/#{@blog.id}/edit/1" %> 
+    <% end %>
+
+    <% if @blog.kind_of?(Blog) %>
+      <%= link_to '削除する', blog_path(@blog), method: :delete, data: {confirm: "本当にこの投稿を削除していいですか?"} %>|
+    <% elsif @blog.kind_of?(OutBlog) %>
+      <%= link_to '削除する', "/blogs/#{@blog.id}/1", method: :delete, data: {confirm: "本当にこの投稿を削除していいですか?"} %>|
+    <% end %>
     <%= link_to '戻る', main_path %>
   </div>
 

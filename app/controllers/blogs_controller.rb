@@ -21,12 +21,27 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    @blog = Blog.find(params[:id])
+    if params[:out]
+      @blog = OutBlog.find(params[:id])
+      
+    else
+      @blog = Blog.find(params[:id])
+    end
+    
   end
 
   def show
-    @blog = Blog.find(params[:id])
-    @incomes = Income.find_by(user_id: @blog.user_id)
+
+
+
+    if params[:out].nil?
+      @blog = Blog.find(params[:id])
+      @incomes = Income.find_by(user_id: @blog.user_id)
+
+    else
+      @blog = OutBlog.find(params[:id])
+    end
+
   end
 
   def update
@@ -48,7 +63,13 @@ class BlogsController < ApplicationController
 
   def destroy
 
-    @blog = Blog.find(params[:id])
+    if params[:out]
+
+      @blog = OutBlog.find(params[:id])
+
+    else
+      @blog = Blog.find(params[:id])
+    end
 
     if @blog
 
@@ -62,9 +83,6 @@ class BlogsController < ApplicationController
 
   end
 
-  def border
-    @chart = {国語: 10, 算数: 20, 理科: 30, 社会: 40}
-  end
 
   private
 

@@ -13,7 +13,7 @@ before_action :log_in?, only: [:destory]
 
     @user = User.find_by(email: "sample@icloud.com")
 
-    if @user && @user.authenticate("nh10221022")
+    if @user && @user.authenticate("password")
 
       flash[:success] = "#{@user.name}さんようこそ!"
       log_in(@user)

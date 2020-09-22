@@ -5,4 +5,7 @@ class Income < ApplicationRecord
   validates :month, presence: true
   validates :series, presence: true
 
+  belongs_to :user
+  has_one :blog, dependent: :destroy
+
 end

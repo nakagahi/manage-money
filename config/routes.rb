@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'out_blogs/update'
   get "/moneys/:id", to: "moneys#manage"
   resources :moneys
 
@@ -30,8 +31,14 @@ Rails.application.routes.draw do
   get "/easy/login", to: "sessions#easy"
 
 # (blogコントローラー)
-  get "/blogs/border", to: "blogs#border"
   resources :blogs
+  delete "/blogs/:id/:out", to: "blogs#destroy"
+  get "/blogs/:id/:out", to: "blogs#show"
+  get "/blogs/border", to: "blogs#border"
+  get "/blogs/:id/edit/:out", to: "blogs#edit"
+
+  resources :out_blogs
+
 
 
 
