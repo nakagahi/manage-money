@@ -5,18 +5,18 @@
 
       <%= gravatar_for @user %>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-8">
       <h5>
-        <div class="profile-name">
+        <div class="profile-name mt-3">
           名前:<%= @user.name %>
         </div>
-        <div class="profile-email">
+        <div class="profile-email mt-3">
           メールアドレス:<%= @user.email %>
         </div>
-        <div class="profile-money">
+        <div class="profile-money mt-4">
 
-          <%= link_to "今月使えるお金#{@total}\n" , "/moneys/#{@user.id}" %><br>
-          (クリックして頂けると内訳が見えます)
+          <%= "今月使えるお金:#{@total}\n" %>
+
 
         </div>
 
@@ -24,7 +24,13 @@
 
     </div>
 
-  </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-lg-6 offset-lg-3 mt-5">
+        <%= link_to("内訳を確認", "/moneys/#{@user.id}", class: "btn btn-danger btn-lg") %>
+      </div>
 
 
   </div>

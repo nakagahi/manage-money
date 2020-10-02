@@ -19,7 +19,7 @@
     <% if @blog.kind_of?(Blog) %>
       <%= link_to '編集する', "/blogs/#{@blog.id}/edit" %> |
     <% elsif @blog.kind_of?(OutBlog) %>
-      <%= link_to '編集する', "/blogs/#{@blog.id}/edit/1" %> 
+      <%= link_to '編集する', "/blogs/#{@blog.id}/edit/1" %>|
     <% end %>
 
     <% if @blog.kind_of?(Blog) %>
