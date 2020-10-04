@@ -37,11 +37,13 @@
 * Docker/Docker-compose
 * postgres
 
-### 本番環境(この環境する予定ですが、エラーが起きていて今はherokuで動かしています)
+### 本番環境
 * AWS (EC2、RDS for MySQL、Route53、CloudWatch、S3、Lambda)
 * postgres
 * Nginx、 Puma
-* CircleCIを用いてdocker-composeでコンテナを構築しCapistranoにより自動デプロイ
+
+### インフラ構成図
+![AWS構成図](https://user-images.githubusercontent.com/61630781/95007663-0e792180-064d-11eb-9cb9-0b7c98b00513.png)
 
 
 ### テスト
