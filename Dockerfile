@@ -19,4 +19,5 @@ WORKDIR /project
 COPY Gemfile Gemfile.lock /project/
 
 RUN bundle install
+
 RUN rails webpacker:install
